@@ -1,21 +1,21 @@
 import './App.css'
-import Boton from './components/Boton/Boton'
-import BotonDinamico from './components/BotonDinamico/BotonDinamico'
+import ItemListContainer from './components/ItemListContainer/ItemListContainer'
+import NavBar from './components/NavBar/NavBar'
+import { ChakraProvider } from '@chakra-ui/react'
+import RefFocus from './components/useRef/RefFocus'
+
 function App() {
 
   return (
-    <>
-      <Boton />
-      <BotonDinamico 
-        texto='Soy un botón dinámico'
-        clase='btn'
-        id='btn'
-        disabled={false}
-      />
-      <BotonDinamico 
-        texto='Soy otro botón dinámico'
-      />
-    </>
+    <ChakraProvider>
+          {/* <NavBar />
+          <ItemListContainer title='Tienda'/>
+           */}
+
+
+          <RefFocus />
+    </ChakraProvider>
+
   )
 }
 
