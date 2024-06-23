@@ -16,7 +16,7 @@ const ItemListContainer = ({ title }) => {
 
   return (
     <Flex direction={'column'} justify={'center'} align={'center'}>
-        <Heading>{title}</Heading>
+        <Heading mt={5}>{title}</Heading>
         <ItemList productos={productos} />
     </Flex>
   )

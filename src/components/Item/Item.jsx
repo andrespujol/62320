@@ -1,9 +1,10 @@
 import React from 'react'
 import { Card, CardHeader, CardBody, CardFooter, Stack, Heading, Text,Button, ButtonGroup, Divider, Image } from '@chakra-ui/react'
+import ItemCount from '../ItemCount/ItemCount'
 
-const Item = ({nombre, img, precio}) => {
+const Item = ({nombre, img, precio, stock}) => {
   return (
-<Card maxW='sm'>
+<Card maxW='sm' m={3}>
   <CardBody>
     <Image
       src={img}
@@ -27,6 +28,7 @@ const Item = ({nombre, img, precio}) => {
       <Button variant='ghost' colorScheme='blue'>
         Ver detalle
       </Button>
+      <ItemCount initialValue={1} stock={stock}/>
     </ButtonGroup>
   </CardFooter>
 </Card>
