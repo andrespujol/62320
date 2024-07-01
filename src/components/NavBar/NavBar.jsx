@@ -16,20 +16,17 @@ import {
 } from "@chakra-ui/react";
 import { FaAngleDown } from "react-icons/fa";
 import './NavBar.css'
+import { Link } from "react-router-dom";
 const NavBar = () => {
   return (
     <Flex className="navBar" justify={'space-between'} align={'center'} height={'10vh'} w={'100%'}>
-        <Heading ml={4}>Logo</Heading>
+        <Heading ml={4}><Link to='/'>Logo</Link></Heading>
         <Menu>
             <MenuButton as={Button} rightIcon={<FaAngleDown />}>
-            Actions
+            Categorías
             </MenuButton>
             <MenuList>
-            <MenuItem>Download</MenuItem>
-            <MenuItem>Create a Copy</MenuItem>
-            <MenuItem>Mark as Draft</MenuItem>
-            <MenuItem>Delete</MenuItem>
-            <MenuItem>Attend a Workshop</MenuItem>
+                {/* menú con nuestras categorías */}
             </MenuList>
         </Menu>
         <CartWidget />
