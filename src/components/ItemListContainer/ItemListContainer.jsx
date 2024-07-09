@@ -13,16 +13,20 @@ const ItemListContainer = ({ title }) => {
   useEffect(()=> {
     setLoading(true)
 
-    // si hay categorías, seteamos en el estado los productos de esa categoría. Sino traemos todos
+    const dataProductos = categoryId ? getProductsByCategory(categoryId) : getProducts()
+    dataProductos
+      .then((prod) => setProductos(prod))
+      .catch((error) => console.log(error))
+      .finally(() => setLoading(false))
   }, [categoryId])
 
   return (
     <Flex direction={'column'} justify={'center'} align={'center'}>
-        <Heading mt={5}>{title}</Heading>
+        <Heading mt={5} color={'#3F747D'}>{title}</Heading>
         {
           loading ?
           <Flex justify={'center'} align={'center'} h={'50vh'}>
-          <BounceLoader color='#55868C'/>
+            <BounceLoader color='#55868C'/>
           </Flex>
           :
           <ItemList productos={productos} />

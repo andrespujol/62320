@@ -11,7 +11,10 @@ const ItemDetailContainer = () => {
     const [ loading, setLoading ] = useState(true)
 
     useEffect(() => {
-        // traemos un producto y actualizamos el estado
+        getProductById(productId)
+            .then((data) => setProduct(data))
+            .catch((error) => console.log(error))
+            .finally(() => setLoading(false))
     }, [])
 
     return (
