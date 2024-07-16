@@ -13,11 +13,12 @@ import {
     Flex,
     Heading,
     Text,
-    Link as ChakraLink
+    Link as ChakraLink,
+    Center
   } from '@chakra-ui/react'
 import Context from '../../context/CartContext'
 import { Link } from 'react-router-dom'
-import { RiDeleteBin4Fill, RiDeleteBin7Fill  } from "react-icons/ri";
+import { RiDeleteBin4Line, RiDeleteBin7Line } from "react-icons/ri";
 
 const Cart = () => {
     const { cart, removeItem, clearCart, getTotalPrice } = useContext(Context)
@@ -32,41 +33,95 @@ const Cart = () => {
     }else {
 
         return (
-            <TableContainer>
-        <Table variant='striped' colorScheme='teal'>
-            <Thead>
-                <Tr>
-                    <Th>Producto</Th>
-                    <Th>Cantidad</Th>
-                    <Th>Precio</Th>
-                    <Th>Subtotal</Th>
-                    <Th></Th>
+            <TableContainer w={'80%'} m={'0 auto'} mt={10}>
+            <Table variant='striped' >
+                <Thead>
+                <Tr >
+                    <Th fontSize={'1rem'} color={'#416d6d'}>Producto</Th>
+                    <Th fontSize={'1rem'} color={'#416d6d'}>Cantidad</Th>
+                    <Th fontSize={'1rem'} color={'#416d6d'}>Precio</Th>
+                    <Th fontSize={'1rem'} color={'#416d6d'}>Subtotal</Th>
+                    <Th fontSize={'1rem'} color={'#416d6d'}></Th>
+
                 </Tr>
-            </Thead>
-            <Tbody>
-                {
-                    cart.map((prod) =>  (
-                        <Tr key={prod.id}>
-                            <Td>{prod.nombre}</Td>
-                            <Td>{prod.quantity}</Td>
-                            <Td>{prod.precio}</Td>
-                            <Td>{prod.precio * prod.quantity}</Td>
-                            <Td>
-                                {
-                                    <Button onClick={() => removeItem(prod.id)} background={'transparent'}><RiDeleteBin4Fill /></Button>
-                                }
-                            </Td>
-                        </Tr>
-                    ))
-                }
-            </Tbody>
-        </Table>
-        <Flex>
-            <Heading>Total: {getTotalPrice()}</Heading>
-            <Button onClick={() => clearCart()}>Vaciar el carrito <RiDeleteBin7Fill/></Button>
-            <Text>Finalizar compra</Text>
-        </Flex>
-    </TableContainer>
+                </Thead>
+                <Tbody >
+                    {
+                        cart.map((prod, index) => (
+                            <Tr key={prod.id} bg={index % 2 === 0 ? '#3F747D' : '#c5d0d3'} color={index % 2 === 0 ? '#c5d0d3' : '#3F747D'}>
+                                <Td border={'none'}>{prod.nombre}</Td>
+                                <Td border={'none'}>{prod.quantity}</Td>
+                                <Td border={'none'} >{prod.precio}</Td>
+                                <Td border={'none'}>{prod.precio * prod.quantity}</Td>
+                                <Td border={'none'}>
+                                    <Button 
+                                        bg={'transparent'} 
+                                        fontSize={'1.5rem'}
+                                        color={index % 2 === 0 ? '#c5d0d3' : '#3F747D'} 
+                                        _hover={{
+                                            backgroundColor: 'transparent',
+                                            color:index % 2 === 0 ? '#c5d0d3' : '#416d6d',
+                                        }}
+                                        onClick={() => removeItem(prod.id)}>
+                                        <RiDeleteBin4Line />
+                                    </Button>
+                                </Td>
+                            </Tr>
+                        ))
+                    }
+                </Tbody>
+            </Table>
+            <Center mt={10}>
+                <Flex bg={'#3F747D'} w={'90%'} h={'5vh'} justify={'space-around'} align={'center'}>
+                    <Text 
+                        fontSize={'3xl'} 
+                        color={'#c5d0d3'} 
+                        w={'15rem'}
+                        height={'3rem'}
+                        textAlign={'center'}
+                        >Total: ${getTotalPrice()}
+                    </Text>
+                    <Button onClick={() => clearCart()}
+                        w={'15rem'}
+                        height={'3rem'} 
+                        backgroundColor={'transparent'} 
+                        color={'#c5d0d3'} 
+                        fontSize={'xl'}
+                        _hover={{
+                            backgroundColor: '#608e8e',
+                            color: '#c5d0d3',
+                        }}
+                        >
+                        <span className='iconClearCart'>
+                            <RiDeleteBin7Line/> 
+                        </span>
+                        Vaciar carrito
+                    </Button>
+                    <Flex justifyContent={'center'} alignItems={'center'} height={'100vh'}>
+                        <ChakraLink 
+                            as={Link} 
+                            width={'15rem'}
+                            height={'3rem'} 
+                            to='/checkout'
+                            display={'flex'}
+                            justifyContent={'center'}
+                            alignItems={'center'}
+                            textAlign={'center'}
+                            backgroundColor={'#3F747D'}
+                            color={'#fff'}
+                            _hover={{
+                                backgroundColor: '#608e8e',
+                                color: '#fff',
+                                borderRadius: '10px'
+                            }}
+                        >
+                            Finalizar compra
+                        </ChakraLink>
+                    </Flex>
+
+                </Flex>
+            </Center>
+        </TableContainer>
   )
 }
 }

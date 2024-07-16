@@ -18,15 +18,15 @@ import logo from '../../assets/logo.png'
 
 const NavBar = () => {
   return (
-    <Flex className="navBar" justify={'space-between'} align={'center'} height={'10vh'} w={'100%'}>
+    <Flex className="navBar" justify={'space-between'} align={'center'} height={'10vh'} w={'100%'} bg={'#222831'}>
         <Heading color={'#F7EEF1'} ml={4}><Link to='/'><Image w={'20%'} src={logo}/></Link></Heading>
         <Menu>
-        <MenuButton as={Button} color={'#c86f43'} rightIcon={<FaAngleDown />}>
-            Categoría
+        <MenuButton as={Button} color={'#c5d0d3'} rightIcon={<FaAngleDown />}>
+            Categorías
         </MenuButton>
         <MenuList>
             <MenuItem 
-              color={'#c86f43'}
+              color={'#c5d0d3'}
               _hover={{ bg: '#c5d0d3', color: '#416d6d' }}
               >
               <Link to='/categoria/Remeras'>
@@ -34,7 +34,7 @@ const NavBar = () => {
               </Link>
             </MenuItem>
             <MenuItem 
-              color={'#c86f43'}
+              color={'#c5d0d3'}
               _hover={{ bg: '#c5d0d3', color: '#416d6d' }}
               >
               <Link to='/categoria/Buzos'>
@@ -42,7 +42,7 @@ const NavBar = () => {
               </Link>
             </MenuItem>
             <MenuItem 
-              color={'#c86f43'}
+              color={'#c5d0d3'}
               _hover={{ bg: '#c5d0d3', color: '#416d6d' }}
               >
               <Link to='/categoria/Pijamas'>
@@ -50,7 +50,7 @@ const NavBar = () => {
               </Link>
             </MenuItem>
             <MenuItem 
-              color={'#c86f43'}
+              color={'#c5d0d3'}
               _hover={{ bg: '#c5d0d3', color: '#416d6d' }}
               >
               <Link to='/categoria/Zapatillas'>

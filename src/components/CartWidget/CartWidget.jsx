@@ -13,7 +13,7 @@ const CartWidget = () => {
         <MdOutlineShoppingCart className='cartIcon'/>
       </Link>
         <Flex justify={'center'} align={'center'} h={'50%'} w={'50%'} >
-          <Badge borderRadius={'50%'}  color={'#c86f43'} fontSize={'md'}>{getQuantity()}</Badge>
+          <Badge borderRadius={'50%'}  color={'#c5d0d3'} fontSize={'md'}>{getQuantity()}</Badge>
         </Flex>
     </Flex>
   );

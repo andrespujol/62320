@@ -9,27 +9,27 @@ const ItemCount = ({initialValue, stock, onAdd}) => {
     <Flex>
         <Button 
           onClick={decrementar}
-          background={'#C49450'} 
-          color={'#3F747D'}
-          _hover={{ bg: '#D2A567', cursor: 'pointer' }}
+          background={'#3F747D'} 
+          color={'#F7F8FB'}
+          _hover={{ bg: '#4A8994', cursor: 'pointer' }}
           >
             -
         </Button>
-        <Heading mx={3} color={'#3F747D'}>{count}</Heading>
+        <Heading mx={3} color={'#F7F8FB'}>{count}</Heading>
         <Button 
           onClick={incrementar}
-          background={'#C49450'} 
-          color={'#3F747D'}
-          _hover={{ bg: '#D2A567', cursor: 'pointer' }}
+          background={'#3F747D'} 
+          color={'#F7F8FB'}
+          _hover={{ bg: '#4A8994', cursor: 'pointer' }}
           >
             +
         </Button>
         <Button 
           onClick={() => onAdd(count)}
-          background={'#C49450'} 
-          color={'#3F747D'}
+          background={'#3F747D'} 
+          color={'#F7F8FB'}
           ml={3}
-          _hover={{ bg: '#D2A567', cursor: 'pointer' }}
+          _hover={{ bg: '#4A8994', cursor: 'pointer' }}
           >
           Agregar al carrito
         </Button>

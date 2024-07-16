@@ -16,9 +16,9 @@ const Item = ({nombre, id, img, precio, stock}) => {
       borderRadius='lg'
     />
     <Stack mt='6' spacing='3'>
-      <Heading size='md'color={'#3F747D'}>{nombre}</Heading>
+      <Heading size='md'color={'#c5d0d3'}>{nombre}</Heading>
 
-      <Text color={'#3F747D'} fontSize='2xl'>
+      <Text color={'#c5d0d3'} fontSize='2xl'>
         ${precio}
       </Text>
     </Stack>
@@ -29,7 +29,7 @@ const Item = ({nombre, id, img, precio, stock}) => {
       <Button 
         variant='ghost' 
         background={'#C49450'} 
-        color={'#3F747D'}
+        color={'#222831'}
         _hover={{ bg: '#D2A567', cursor: 'pointer' }}
         >
         <Link to={`/producto/${id}`}>Ver detalle</Link>
